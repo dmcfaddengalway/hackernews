@@ -1,0 +1,14 @@
+div {
+  background-color: orange;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  ul {
+    display: inline-block;
+
+    li {
+      display: inline;
+      margin: 10px;
+    }
+  }
+}

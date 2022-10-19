@@ -1,0 +1,10 @@
+<div>
+  <ul>
+    <li>{{ stories.length }}</li>
+    <li>{{ topStories.length }}</li>
+    <li>{{ story.title }}</li>
+    <li *ngFor="let story of stories">
+      {{ story }}
+    </li>
+  </ul>
+</div>
