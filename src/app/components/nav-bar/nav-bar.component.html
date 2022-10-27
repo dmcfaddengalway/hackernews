@@ -1,12 +1,9 @@
 <div>
   <ul>
     <a routerLink=""><li>Home</li></a>
-    <a href="www.google.com"><li>New</li></a>
-    <a href="www.google.com"><li>Past</li></a>
-    <a href="www.google.com"><li>Comments</li></a>
-    <a href="www.google.com"><li>Ask</li></a>
-    <a href="www.google.com"><li>Show</li></a>
-    <a href="www.google.com"><li>Jobs</li></a>
-    <a href="www.google.com"><li>Submit</li></a>
+    <a routerLink="/newest/1" (click)="scrollToTop()"><li>New</li></a>
+    <a routerLink="/show/1" (click)="scrollToTop()"><li>Show</li></a>
+    <a routerLink="/ask/1" (click)="scrollToTop()"><li>Ask</li></a>
+    <a routerLink="/jobs/1" (click)="scrollToTop()"><li>Jobs</li></a>
   </ul>
 </div>

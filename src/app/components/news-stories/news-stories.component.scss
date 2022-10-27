@@ -1,24 +1,31 @@
-// .news-item {
-//   border-bottom: 1px solid red;
-// }
-
 .stories-section {
   display: flex;
-  column-gap: 20px;
+  column-gap: 10px;
 
-  h1 {
-    margin-left: 10px;
+  .section-header {
+    margin-bottom: 30px;
+
+    h1 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 10px;
+    }
+
+    h3 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 10px;
+      font-weight: 200;
+      color: grey;
+    }
   }
 
   .all-stories-section {
     flex: 1;
     width: 60%;
-    // background-color: red;
   }
 
   .top-news-section {
+    background-color: lightgray;
     width: 40%;
-    // background-color: blue;
   }
 
 }

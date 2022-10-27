@@ -1,12 +1,25 @@
 div {
   background-color: #D33E43;
+  margin-bottom: 20px;
+  overflow: hidden;
 
   ul {
     display: inline-block;
 
-    li {
-      display: inline;
-      margin: 10px;
+    a {
+      text-decoration: none;
+      color: white;
+
+      li {
+        display: inline;
+        margin: 10px 5px;
+        padding: 14px 16px;
+
+        &:hover {
+          background-color: #BD373C;
+        }
+      }
+
     }
   }
 }

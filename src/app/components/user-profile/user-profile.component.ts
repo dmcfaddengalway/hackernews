@@ -14,8 +14,10 @@ import { Story } from '../../models/story';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
+  public items = ['Stories', 'Comments', 'Favourites'];
   public user: User;
   public usersStories: Story[];
+  public usersComments: Comment[] = [];
 
   constructor(
     private storiesService: StoriesService,
@@ -25,38 +27,46 @@ export class UserProfileComponent implements OnInit {
   public ngOnInit(): void {
     const userId = this.route.snapshot.params["id"]
 
-    this.storiesService.getUserById(userId).subscribe(data => {
-      this.user = data;
-      console.log(this.user);
+    this.storiesService.getUserById(userId).subscribe(userStories => {
+      this.user = userStories;
+
       this.getUsersStories(this.user.submitted);
+      this.getUsersComments(this.user.submitted);
     });
   }
 
-  public toggleAccordion(event, index) {
-    var element = event.target;
-    element.classList.toggle("active");
-    if (this.usersStories[index]) {
-      // this.usersStories[index] = false;
-    } else {
-      // this.usersStories[index] = true;
-    }
-    var panel = element.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
+  public toggleAccordion(event) {
+    const element = event.target;
+    element.classList.toggle('active');
+
+    const panel = element.nextElementSibling;
+
+    if (element.classList.contains('active')) {
+      panel.style.maxHeight = '0px';
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
     }
   }
 
-  private getUsersStories(usersStories) {
-    usersStories.forEach(story => {
+  private getUsersStories(usersSubmission) {
+    usersSubmission.forEach(story => {
       this.storiesService.getStoryById(story).pipe(
         filter(story => story.type === 'story')
       )
-        .subscribe(stories => {
-          this.usersStories = [stories];
-          console.log(stories);
-        })
+      .subscribe(stories => {
+        this.usersStories = [stories];
+      });
+    });
+  }
+
+  private getUsersComments(usersSubmission) {
+    usersSubmission.forEach(commentId => {
+      this.storiesService.getCommentsByUsersCommentId(commentId).pipe(
+        filter(comment => comment?.type === 'comment'),
+      )
+      .subscribe((comments: Comment) => {
+        this.usersComments.push(comments);
+      });
     });
   }
 

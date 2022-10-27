@@ -1,4 +1,5 @@
 .profile-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
 
   .profile-pane {
@@ -32,9 +33,14 @@
             margin: 10px;
 
             span {
+              color: #D33E43;
               font-weight: bold;
             }
           }
+        }
+
+        .about {
+          margin: 10px;
         }
       }
     }
@@ -42,10 +48,14 @@
 
   .story-pane {
     flex: 2;
-    margin: 0 auto;
+    margin: 20px;
+
+    h1 {
+      margin-left: 20px;
+    }
 
     .collapsible {
-        background-color: #777;
+        background-color: #D33E43;
         color: white;
         cursor: pointer;
         padding: 18px;
@@ -58,14 +68,18 @@
 
       .active,
       .collapsible:hover {
-        background-color: #555;
+        background-color: #D33E43;
       }
 
       .content {
         padding: 0 18px;
-        display: none;
         overflow: hidden;
         background-color: #f1f1f1;
+        -moz-transition: max-height .5s;
+        -ms-transition: max-height .5s;
+        -o-transition: max-height .5s;
+        -webkit-transition: max-height .5s;
+        transition: max-height .5s;
       }
   }
 

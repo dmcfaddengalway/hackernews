@@ -1,12 +1,18 @@
 <div class="stories-section">
   <div class="all-stories-section">
-    <h1>All News Stories</h1>
-    <div *ngFor="let story of stories">
+    <div class="section-header">
+      <h1>All News Stories</h1>
+      <h3>A list of stories for you to keep up to date on today's latest news.</h3>
+    </div>
+    <div *ngFor="let story of stories; let i = index">
       <news-item class="news-item" [story]="story"></news-item>
     </div>
   </div>
   <div class="top-news-section">
-    <h1>Top News Stories</h1>
+    <div class="section-header">
+      <h1>Top News Stories</h1>
+      <h3>A curated list of the top 10 latest hot stories.</h3>
+    </div>
     <div *ngFor="let topStory of topStories">
       <news-item class="news-item" [story]="topStory"></news-item>
     </div>

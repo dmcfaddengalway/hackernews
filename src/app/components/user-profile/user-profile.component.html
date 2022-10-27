@@ -6,32 +6,29 @@
       </div>
       <div class="profile-info">
         <ul>
-          <li><span>Username:</span> {{ user.id }}</li>
-          <li><span>User since:</span> {{ user.created * 1000 | date: 'MMM d, y, h:mm a' }}</li>
-          <li><span>Karma:</span> {{ user.karma }}</li>
+          <li><span>Username:</span> {{ user?.id }}</li>
+          <li><span>User since:</span> {{ user?.created * 1000 | date: 'MMM d, y, h:mm a' }}</li>
+          <li><span>Karma:</span> {{ user?.karma }}</li>
         </ul>
+        <div class="about">
+          {{ user?.about }}
+        </div>
       </div>
     </div>
   </div>
   <div class="story-pane">
     <h1>Submissions</h1>
-    <button type="button" class="collapsible" (click)="toggleAccordion($event, '')">Stories</button>
-    <div class="content">
-        <ul>
-          <li *ngFor="let userStories of usersStories">{{ userStories.title }}</li>
-        </ul>
-    </div>
-    <!-- <button type="button" class="collapsible">Comments</button>
+    <button type="button" class="collapsible" (click)="toggleAccordion($event)">Stories</button>
     <div class="content">
       <ul>
-        <li *ngFor="let userStories of usersStories">{{ userStories.title }}</li>
+        <li *ngFor="let userStories of usersStories"><a href="{{ userStories.url }}">{{ userStories?.title }}</a></li>
       </ul>
     </div>
-    <button type="button" class="collapsible">Favourites</button>
+    <button type="button" class="collapsible" (click)="toggleAccordion($event)">Comments</button>
     <div class="content">
       <ul>
-        <li *ngFor="let userStories of usersStories">{{ userStories.title }}</li>
+        <li *ngFor="let comment of usersComments">{{ comment?.text }}</li>
       </ul>
-    </div> -->
+    </div>
   </div>
 </div>

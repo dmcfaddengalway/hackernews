@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PluralisationPipe } from './pluralisation-pipe/comment.pipe';
+import { PluralisationPipe } from './pluralisation-pipe/pluralisation.pipe';
 
 @NgModule({
   declarations: [

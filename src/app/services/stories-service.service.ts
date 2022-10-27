@@ -52,6 +52,10 @@ export class StoriesService {
     return this.httpClient.get(this.storyURL + id + '.json');
   }
 
+  public getCommentsByUsersCommentId(userId: string): Observable<any> {
+    return this.httpClient.get(this.storyURL + userId + '.json?print=pretty');
+  }
+
   public getUserById(userId: string): Observable<any> {
     return this.httpClient.get(this.userURL + userId + '.json?print=pretty');
   }
