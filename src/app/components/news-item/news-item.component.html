@@ -1,0 +1,11 @@
+<div class="story-container">
+  <a href="{{ story.url }}"><h3 class="news-title">{{ story.title }}</h3></a>
+  <div class="item-details">
+    <div>
+      <p>Posted by: <a [routerLink]="['/user', story.by]" routerLinkActive="active"><span>{{ story.by }}</span></a> on <span>{{ story.time * 1000 | date: 'fullDate' }}</span></p>
+    </div>
+    <div>
+      <p><span>{{ story.score | pluralisation: 'score' }}</span> | <a [routerLink]="['/item', story.id]"><span>{{ story?.kids?.length | pluralisation: 'comments' }}</span></a></p>
+    </div>
+  </div>
+</div>

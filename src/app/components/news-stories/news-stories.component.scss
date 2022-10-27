@@ -1,0 +1,24 @@
+// .news-item {
+//   border-bottom: 1px solid red;
+// }
+
+.stories-section {
+  display: flex;
+  column-gap: 20px;
+
+  h1 {
+    margin-left: 10px;
+  }
+
+  .all-stories-section {
+    flex: 1;
+    width: 60%;
+    // background-color: red;
+  }
+
+  .top-news-section {
+    width: 40%;
+    // background-color: blue;
+  }
+
+}

@@ -1,0 +1,14 @@
+<div class="stories-section">
+  <div class="all-stories-section">
+    <h1>All News Stories</h1>
+    <div *ngFor="let story of stories">
+      <news-item class="news-item" [story]="story"></news-item>
+    </div>
+  </div>
+  <div class="top-news-section">
+    <h1>Top News Stories</h1>
+    <div *ngFor="let topStory of topStories">
+      <news-item class="news-item" [story]="topStory"></news-item>
+    </div>
+  </div>
+</div>
