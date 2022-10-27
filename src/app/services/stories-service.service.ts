@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { User } from '../models/user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +19,8 @@ export class StoriesService {
   private readonly jobStoriesURL = `${this.baseURL}jobstories.json?print=pretty`;
 
   private readonly storyURL = `${this.baseURL}item/`;
+
+  private readonly userURL = `${this.baseURL}user/`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -45,6 +49,10 @@ export class StoriesService {
   }
 
   public getStoryById(id: string): Observable<any> {
-    return this.httpClient.get(this.storyURL + id + '.json?print=pretty');
+    return this.httpClient.get(this.storyURL + id + '.json');
+  }
+
+  public getUserById(userId: string): Observable<any> {
+    return this.httpClient.get(this.userURL + userId + '.json?print=pretty');
   }
 }
